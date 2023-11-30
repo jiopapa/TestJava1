@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+p {text-align: center;}
+ body { background-color:yellow; }
+table{position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+
+
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- <div th:if="${session.auth != null}"  >
+
+</div>  -->
+<div >
+ <div class="about_img">
+<form action="/login/login" method="post" th:object="${loginCommand}" >
+	<table border="1"  width="350px">
+	<caption>견적문의를 위해서는 로그인이 필요합니다.</caption>
+		<tr> <td width="300px"><input type="text" name="userId" placeholder="아이디" style="width: 220px"/><br /></td>
+			<td rowspan="2" style="line-height:0">
+				<input type="image" src="/static/images/loginbtn.png" style="margin:0; padding:0; width:100px; height:50px">
+			</td></tr>
+		<tr><td><input type="password" name="userPw" placeholder="비밀번호" /><br /></td></tr>
+		
+		<tr><td colspan="2"><a href="/register/userAgree">회원가입</a> | 
+							<a href="/help/findId">아이디 찾기</a> | 
+							<a href="/help/findPassword">비밀번호 찾기</a></td></tr>
+	</table>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  contact 
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="bg_yeloow">
+                     <div class="titlepage text_align_center">
+                        <h2>Contact Us</h2>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                           <form id="request" class="main_form">
+                              <div class="row">
+                                 <div class="col-md-12 ">
+                                    <input class="contactus" placeholder="Name" type="type" name=" Name"> 
+                                 </div>
+                                 <div class="col-md-12">
+                                    <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                                 </div>
+                                 <div class="col-md-12">
+                                    <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                                 </div>
+                                 <div class="col-md-12">
+                                    <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                                 </div>
+                                 <div class="col-md-12">
+                                    <button class="send_btn">Send</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      end contact -->
+</body>
+</html>

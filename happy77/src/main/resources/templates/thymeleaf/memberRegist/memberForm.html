@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/static/js/daumAddressScript.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="userRegist" method="post" id="frm"  >
+<!-- <input type="hidden" name="memberNum" th:value="${memberCommand.memberNum}"> -->
+<table border="1" align="center">
+<caption>해피메탈 회원가입</caption>
+<tr><th>회원번호 </th><td><input type="text" name="memberNum" th:value="${memberCommand.memberNum}" readonly="readonly"></td>
+<tr><th>회원아이디</th><td><input type="text" name="memberId" /></td>
+<tr><th>회원비밀번호</th> <td> <input type="password" name="memberPw"  /> </td>
+<tr><th>회원비밀번호 확인</th> <td>  <input type="password" name="memberPwCon" /></td>
+<tr><th>담당자이름</th> <td> <input type="text" name="picName" ></td>
+<tr><th>담당자전화번호</th><td> <input type="text" name="picPhone"></td>
+<tr><th>담당자이메일</th><td> <input type="text" name="picEmail"></td>
+<tr><th>사업자번호</th><td> <input type="text" name="businessRegiNum"></td>
+<tr><th>사업체명</th><td> <input type="text" name="businessName"></td>
+<tr><th>사업체주소</th><td> <input type="text" name="businessAddr" id="sample4_roadAddress" 
+						  onclick="execDaumPostcode();" readonly="readonly"/></td>
+<tr><th>상세주소</th><td> <input type="text" name="businessAddrDetail"></td>
+<tr><th>사업체우편번호</th><td> <input type="text" name="businessPost" id="sample4_postcode" readonly="readonly"/></td>
+<tr><th>대표명</th><td> <input type="text" name="representativeName"></td>
+<tr><th>업태</th><td> <input type="text" name="businessType"></td>
+<tr><th>종목</th><td> <input type="text" name="businessItem"></td>
+<tr><th>대표전화</th><td> <input type="text" name="businessTel"></td>
+<tr><th colspan="2"><input type="submit" value="가입완료"></th>
+
+</table>
+</form>
+</body>
+</html>
