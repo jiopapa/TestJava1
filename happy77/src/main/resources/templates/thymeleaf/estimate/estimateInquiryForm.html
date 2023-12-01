@@ -3,6 +3,16 @@
 <head>
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 <style type="text/css">
+<<<<<<< HEAD
+
+table{position: absolute;
+    top: 100%;
+    left: 0%;
+    }
+
+  
+=======
+>>>>>>> refs/remotes/origin/main
 
 table{position: absolute;
     top: 100%;
@@ -11,6 +21,72 @@ table{position: absolute;
 
   
 
+
+body {
+ 
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+
+  margin: 0;
+  background-image: url('../static/images/bggg.png');
+
+}
+ 
+.login-form {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+    width: 300px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    
+}
+ 
+.text-field {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+      font-size: 14px;
+      padding: 10px;
+      border: none;
+      width: 260px;
+      margin-bottom: 10px;
+ 
+}
+ 
+.submit-btn {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+  font-size: 14px;
+  border: none;
+  padding: 10px;
+  width: 260px;
+  background-color: #1BBC9B;
+  margin-bottom: 30px;
+  color: white;
+}
+ 
+.links {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+    text-align: center;
+}
+ 
+.links a {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
 
 body {
  
@@ -91,6 +167,7 @@ body {
 <h2>견적문의 작성</h2>			
 <form name="form" id="form" role="form" method="post" action="#" th:object="${loginCommand}">				
 
+<<<<<<< HEAD
 <div class="mb-3">					
 <label for="title">제목</label>					
 <input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">				
@@ -117,6 +194,23 @@ body {
 </div>	</div>	</article>
 
 
+=======
+</div>  -->
+<div >
+ <div class="login-form">
+<form action="/login/login" method="post" th:object="${loginCommand}" >
+<div style="">견적문의에는 로그인이 필요합니다.</div>
+	<table border="1"  width="400px">
+	
+	  <input type="text" name="userId" class="text-field" placeholder="아이디">
+      <input type="password" name="userPw" class="text-field" placeholder="비밀번호">
+      <input type="submit" value="로그인" class="submit-btn">
+		<div><a href="/register/userAgree">회원가입</a></div><br/> 
+		<div><a href="/help/findId">아이디 찾기</a></div><br/>					 
+		<div><a href="/help/findPassword">비밀번호 찾기</a></div>					
+	</table>
+</form>
+>>>>>>> refs/remotes/origin/main
 </div>
 </div>
 </body>
