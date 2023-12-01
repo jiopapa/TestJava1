@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+<style type="text/css">
+
+table{position: absolute;
+    top: 100%;
+    left: 0%;
+    }
+body {
+ 
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+
+  margin: 0;
+  background-image: url('../static/images/bggg.png');
+
+}
+ 
+.login-form {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+    width: 300px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    
+}
+ 
+.text-field {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+      font-size: 14px;
+      padding: 10px;
+      border: none;
+      width: 260px;
+      margin-bottom: 10px;
+}
+.submit-btn {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+  font-size: 14px;
+  border: none;
+  padding: 10px;
+  width: 260px;
+  background-color: #1BBC9B;
+  margin-bottom: 30px;
+  color: white;
+}
+ 
+.links {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+    text-align: center;
+}
+.links a {
+ box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="login-form">
+<div style="color: red;">견적문의에는 로그인이 필요합니다.</div>
+<form action="/login/login" method="post" th:object="${loginCommand}" >
+
+	<table border="1"  width="400px">
+	
+	  <input type="text" name="userId" class="text-field" placeholder="아이디" th:value="${loginCommand.userId}">
+	  <span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" ></span>
+      <input type="password" name="userPw" class="text-field" placeholder="비밀번호" th:value="${loginCommand.userPw}">
+      <span th:if="${#fields.hasErrors('userPw')}" th:errors="*{userPw}" ></span>
+      <input type="submit" value="로그인" class="submit-btn">
+		<div><a href="/register/userAgree">회원가입</a></div><br/> 
+		<div><a href="/help/findId">아이디 찾기</a></div><br/>					 
+		<div><a href="/help/findPassword">비밀번호 찾기</a></div>					
+	</table>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  contact 
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="bg_yeloow">
+                     <div class="titlepage text_align_center">
+                        <h2>Contact Us</h2>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                           <form id="request" class="main_form">
+                              <div class="row">
+                                 <div class="col-md-12 ">
+                                    <input class="contactus" placeholder="Name" type="type" name=" Name"> 
+                                 </div>
+                                 <div class="col-md-12">
+                                    <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                                 </div>
+                                 <div class="col-md-12">
+                                    <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                                 </div>
+                                 <div class="col-md-12">
+                                    <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                                 </div>
+                                 <div class="col-md-12">
+                                    <button class="send_btn">Send</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      end contact -->
+</body>
+</html>

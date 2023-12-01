@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
+	rel="stylesheet">
+<style type="text/css">
+
+
+body {
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	border-radius: 5px;
+	margin: 0;
+	background-image: url('../static/images/bggg.png');
+}
+</style>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/static/js/daumAddressScript.js"></script>
+<script>$(function(){
+
+});
+function inquireUpdate(inquireNum){
+	window.open("/inquire/inquireUpdate?inquireNum="+inquireNum,"",
+			"width=700, height=650, top=100, left=100")
+}
+</script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="memberUpdate" method="post" id="frm"  >
+<input type="hidden" name="memberNum" th:value="${memberCommand.memberNum}">
+<table border="1" align="center" >
+<caption>회원정보 조회 및 수정</caption>
+<tr><th>회원아이디</th><td><input type="text" name="memberId" readonly="readonly" th:value="${memberCommand.memberId}" /></td></tr>
+<tr><th>담당자이름</th> <td> <input type="text" name="picName" th:value="${memberCommand.picName}" ></td></tr>
+<tr><th>담당자전화번호</th><td> <input type="text" name="picPhone" th:value="${memberCommand.picPhone}"></td></tr>
+<tr><th>담당자이메일</th><td> <input type="text" name="picEmail" th:value="${memberCommand.picEmail}"></td></tr>
+<tr><th>사업자번호</th><td> <input type="text" name="businessRegiNum" th:value="${memberCommand.businessRegiNum}"></td></tr>
+<tr><th>사업체명</th><td> <input type="text" name="businessName" th:value="${memberCommand.businessName}"></td></tr>
+<tr><th>사업체주소</th><td> <input type="text" name="businessAddr" id="sample4_roadAddress" 
+						  onclick="execDaumPostcode();" readonly="readonly" th:value="${memberCommand.businessAddr}" ></td></tr>
+<tr><th>상세주소</th><td> <input type="text" name="businessAddrDetail" th:value="${memberCommand.businessAddrDetail}"></td></tr>
+<tr><th>사업체우편번호</th><td> <input type="text" name="businessPost" id="sample4_postcode" readonly="readonly"/ th:value="${memberCommand.businessPost}"></td></tr>
+<tr><th>대표명</th><td> <input type="text" name="representativeName" th:value="${memberCommand.representativeName}"></td></tr>
+<tr><th>업태</th><td> <input type="text" name="businessType" th:value="${memberCommand.businessType}"></td></tr>
+<tr><th>종목</th><td> <input type="text" name="businessItem" th:value="${memberCommand.businessItem}"></td></tr>
+<tr><th>대표전화</th><td> <input type="text" name="businessTel" th:value="${memberCommand.businessTel}"></td></tr>
+<tr><th colspan="2"><input type="submit" value="수정완료" style="width:100%"></th></tr>
+<tr><th colspan="2"><input type="button" onclick="location.href='../../'" value="홈으로" style="width:100%"></th></tr>
+</table>
+<div><a href="/register/userAgree">목록으로</a></div><br/> 
+</form>
+ 
+</body>
+</html>
