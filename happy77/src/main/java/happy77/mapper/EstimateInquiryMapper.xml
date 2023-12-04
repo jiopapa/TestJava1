@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 	
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="happy77.mapper.EstimateInquiryMapper">
+<insert id="inquiryInsert" parameterType="estimateinquiry" >
+insert into estimateInquiry
+(estimate_inquiry_num, estimate_inquiry_name, Material, Material_Thickness
+ , metal_size, metalwork_qty, desired_Drawing, desired_Drawing_Img, estimate_inquiry_content 
+ , desired_delivery_date, estimate_inquiry_regist, member_num)
+values((select concat('inq',coalesce(max(substring(estimate_inquiry_num,4)::integer),100000)+1) 
+from estimateInquiry),#{estimateInquiryName},#{material},#{materialThickness},#{metalSize},#{metalworkQty},#{desiredDrawing}
+		,#{desiredDrawingImg},#{estimateInquiryContent},#{desiredDeliveryDate},now(),#{memberNum})	
+</insert>
+<select id="inquiryList" resultType="estimateinquiry" parameterType="string">
+select member_num memberNum, estimate_inquiry_name estimateInquiryName
+from estimateInquiry
+order by estimate_inquiry_regist desc
+</select>
+</mapper>

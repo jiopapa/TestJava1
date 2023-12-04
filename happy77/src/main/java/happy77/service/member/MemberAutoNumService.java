@@ -1,4 +1,4 @@
-package happy77.service;
+package happy77.service.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,8 +2,10 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <style type="text/css">
-<<<<<<< HEAD
+ HEAD
 
 table{position: absolute;
     top: 100%;
@@ -11,8 +13,8 @@ table{position: absolute;
     }
 
   
-=======
->>>>>>> refs/remotes/origin/main
+
+ refs/remotes/origin/main
 
 table{position: absolute;
     top: 100%;
@@ -88,71 +90,7 @@ body {
   color: #9B9B9B;
 }
 
-body {
- 
-  box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
 
-  margin: 0;
-  background-image: url('../static/images/bggg.png');
-
-}
- 
-.login-form {
- box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
-    width: 300px;
-    background-color: #EEEFF1;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
-    border: none;
-    
-}
- 
-.text-field {
- box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
-      font-size: 14px;
-      padding: 10px;
-      border: none;
-      width: 260px;
-      margin-bottom: 10px;
- 
-}
- 
-.submit-btn {
- box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
-  font-size: 14px;
-  border: none;
-  padding: 10px;
-  width: 260px;
-  background-color: #1BBC9B;
-  margin-bottom: 30px;
-  color: white;
-}
- 
-.links {
- box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
-    text-align: center;
-}
- 
-.links a {
- box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 5px;
-  font-size: 12px;
-  color: #9B9B9B;
-}
 </style>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -162,56 +100,70 @@ body {
 <title>Insert title here</title>
 </head>
 <body>
-<div th:if="${session.auth != null}"  >
 <article>		<div class="container" role="main">			
 <h2>견적문의 작성</h2>			
-<form name="form" id="form" role="form" method="post" action="#" th:object="${loginCommand}">				
+<form name="form" id="form" role="form" method="post" action="inquiryWrite" th:object="${memberCommand}" enctype="multipart/form-data">
 
-<<<<<<< HEAD
 <div class="mb-3">					
 <label for="title">제목</label>					
-<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">				
+<input type="text" class="form-control" name="estimateInquiryName" id="title" placeholder="제목을 입력해 주세요" required="required">				
 </div>
 <div class="mb-3">					
-<label for="reg_id">작성자</label>					
-<input type="text" class="form-control" name="reg_id" id="reg_id" th:value="${loginCommand.userId}"  >
+<label for="reg_id">업체명</label>					
+<input type="text" class="form-control" name="businessName" id="reg_id" th:value ="${memberCommand.businessName}"  
+readonly="readonly" >
 </div>	
-							
 <div class="mb-3">					
-<label for="content">내용</label>					
-<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>				
-</div>	
-							
+<label for="reg_id">담당자 이메일</label>					
+<input type="text" class="form-control" name="picEmail" id="reg_id" th:value ="${memberCommand.picEmail}" 
+readonly="readonly"  >
+</div>
 <div class="mb-3">					
-<label for="tag">TAG</label>					
-<input type="text" class="form-control" name="tag" id="tag" placeholder="태그를 입력해 주세요">				
+<label for="reg_id">담당자 연락처</label>					
+<input type="text" class="form-control" name="picPhone" id="reg_id" th:value ="${memberCommand.picPhone}"
+readonly="readonly"  >
+</div>		
+<div class="mb-3">					
+<label for="content">견적내용</label>					
+<input type="hidden" name="memberNum" th:value="${memberCommand.memberNum}">
+<table border="2">
+<tr><th>소재</th><td><select name="Material">
+					<option value="일반철판">일반철판</option>
+					<option value="스테인리스">스테인리스</option>
+					<option value="갈바륨강판">갈바륨강판</option>
+					<option value="알루미늄">알루미늄</option></select></td></tr>
+<tr><th>두께</th><td><select name="MaterialThickness" id="MaterialThickness">
+					<option value="1.6T">1.6T</option>
+					<option value="3.2T">3.2T</option>
+					<option value="4.5T">4.5T</option>
+					<option value="6T">6T</option>
+					<option value="9T">9T</option>
+					<option value="12T">12T</option>
+					<option value="16T">16T</option>
+					<option value="20T">20T</option>
+					<option value="25T">25T</option>
+					</select>
+					</td></tr>
+		
+<tr><th>사이즈</th><td><input type="text" name="metalSize" placeholder="제품 사이즈를 입력해 주세요."
+						style="width:300px;" ></td></tr>
+<tr><th>수량</th><td><input type="number" name="metalworkQty" value="1" required="required" min="1"></td></tr>
+<tr><th>희망제작일자</th><td><input type="date" name="desiredDeliveryDate" required="required"></td></tr>
+<tr><th>희망제품이미지</th><td><input type="file" name="desiredDrawing" required="required"></td>
+<tr><th>내용</th><td><textarea rows="3" cols="50" name="estimateInquiryContent" required="required"></textarea></td></tr>
+</table>		
 </div>	
-					
+<button type="submit" class="btn btn-sm btn-primary" id="inquiryWrite">견적요청완료</button>
+<button type="button" class="btn btn-sm btn-primary"  onclick="location.href='../../'" id="List">목록으로</button>
+			
 </form>			
 <div >				
-<button type="button" class="btn btn-sm btn-primary" id="btnSave">저장</button>				
-<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>			
-</div>	</div>	</article>
+</div>	
+</div>	
+</article>
 
 
-=======
-</div>  -->
-<div >
- <div class="login-form">
-<form action="/login/login" method="post" th:object="${loginCommand}" >
-<div style="">견적문의에는 로그인이 필요합니다.</div>
-	<table border="1"  width="400px">
-	
-	  <input type="text" name="userId" class="text-field" placeholder="아이디">
-      <input type="password" name="userPw" class="text-field" placeholder="비밀번호">
-      <input type="submit" value="로그인" class="submit-btn">
-		<div><a href="/register/userAgree">회원가입</a></div><br/> 
-		<div><a href="/help/findId">아이디 찾기</a></div><br/>					 
-		<div><a href="/help/findPassword">비밀번호 찾기</a></div>					
-	</table>
-</form>
->>>>>>> refs/remotes/origin/main
-</div>
-</div>
+
+
 </body>
 </html>

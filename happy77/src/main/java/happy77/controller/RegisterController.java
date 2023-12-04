@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import happy77.command.MemberCommand;
-import happy77.service.MemberAutoNumService;
-import happy77.service.MemberInsertService;
+import happy77.service.member.MemberAutoNumService;
+import happy77.service.member.MemberInsertService;
 
 @Controller
 @RequestMapping("register")
@@ -31,6 +31,6 @@ public class RegisterController {
 	@PostMapping("userRegist")
 	public String userRegist(MemberCommand memberCommand, Model model) {
 		memberInsertService.execute(memberCommand);
-		return "thymeleaf/estimate/estimateInquiryForm";
+		return "redirect:/";
 	}
 }
