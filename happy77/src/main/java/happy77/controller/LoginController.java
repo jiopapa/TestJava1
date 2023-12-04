@@ -27,7 +27,7 @@ public class LoginController {
 			return "thymeleaf/login/loginForm";
 		}
 			return "redirect:/";
-		
-		
+			
 	}
+	
 }

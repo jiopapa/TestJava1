@@ -21,6 +21,7 @@ public class EstimateInquiryCommand {
 	String estimateInquiryContent;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date desiredDeliveryDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date estimateInquiryRegist;
 	String memberNum;
 }

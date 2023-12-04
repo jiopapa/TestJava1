@@ -12,8 +12,9 @@ values((select concat('inq',coalesce(max(substring(estimate_inquiry_num,4)::inte
 from estimateInquiry),#{estimateInquiryName},#{material},#{materialThickness},#{metalSize},#{metalworkQty},#{desiredDrawing}
 		,#{desiredDrawingImg},#{estimateInquiryContent},#{desiredDeliveryDate},now(),#{memberNum})	
 </insert>
+
 <select id="inquiryList" resultType="estimateinquiry" parameterType="string">
-select member_num memberNum, estimate_inquiry_name estimateInquiryName
+select member_num memberNum, estimate_inquiry_name estimateInquiryName, estimate_inquiry_regist estimateInquiryRegist
 from estimateInquiry
 order by estimate_inquiry_regist desc
 </select>

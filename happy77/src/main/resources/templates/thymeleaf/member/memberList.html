@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+회원목록
+<table border=1 width="600" align="center">
+<tr><th>번호</th><th>담당자이름</th><th>법인명</th><th>등록일</th></tr>
+<tr th:each="dto : ${dtos}">
+<td>[[${dto.memberNum}]]</td>
+<td>[[${dto.picName}]]</td>
+<td>[[${dto.businessName}]]</td>
+<td>[[${#dates.format(dto.memberRegist,'yyyy-MM-dd')}]]</td>
+</tr>
+
+</table>
+
+</body>
+</html>

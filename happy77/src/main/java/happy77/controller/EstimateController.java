@@ -3,6 +3,7 @@ package happy77.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,18 +26,27 @@ public class EstimateController {
 	@Autowired
 	InquiryListService inquiryListService;
 	
-	@RequestMapping("contact")
+	@RequestMapping("estimateInquiryList")
 	public String contact(@ModelAttribute("loginCommand") LoginCommand loginCommand,
 			Model model ,HttpSession session
 			, HttpServletRequest request) {
-		memberInfoService.execute(session, model);
-		return "thymeleaf/estimate/estimateInquiryForm";
+		inquiryListService.execute(session, model);
+		return "thymeleaf/estimate/estimateInquiryList"; 
+		
+		
 	}
-	@PostMapping("inquiryWrite")
+	@PostMapping("inquirySubmit")
 	public String inquirySubmit(HttpSession session, EstimateInquiryCommand estimateInquiryCommand, Model model) {
 		inquiryInsertService.execute(estimateInquiryCommand , session);
-		inquiryListService.execute(session, model);
-		return "thymeleaf/estimate/estimateInquiryList";
+		return "redirect:contact";
+	}
+	@GetMapping("inquiryWrite")
+	public String inquiryList(HttpSession session, EstimateInquiryCommand estimateInquiryCommand, Model model) {
+		memberInfoService.execute(session, model);
+		return "thymeleaf/estimate/estimateInquiryForm";
+		
+			
+		
 	}
 		
 

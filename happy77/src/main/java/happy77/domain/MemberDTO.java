@@ -28,4 +28,5 @@ public class MemberDTO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date memberRegist;
 	
+	
 }

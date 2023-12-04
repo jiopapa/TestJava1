@@ -19,4 +19,18 @@ values (#{memberNum}, #{memberId}, #{memberPw}, #{picName}, #{picPhone}
 select concat('mem',coalesce(max(substring(member_num,4)::integer),100000)+1) 
 from members
 </select>
+
+<select id="getMemberNum" resultType="string" parameterType="string">
+select member_num memberNum
+from members
+where member_id = #{memberId}
+</select>
+
+<select id="selectAll" resultType="member">
+select member_num memberNum, member_id memberId, member_pw memberPw, pic_name picName, pic_phone picPhone
+					,pic_email picEmail, business_regi_num businessRegiNum, business_name businessName, business_addr businessAddr
+					,business_addr_detail businessAddrDetail, business_post businessPost, representative_name representativeName
+					,business_type businessType, business_item businessItem, business_tel businessTel, member_regist memberRegist
+from members
+</select>
 </mapper>
