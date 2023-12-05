@@ -12,4 +12,6 @@ public interface MemberMapper {
 	public String memberAutoNum();
 	public String getMemberNum(String memberId);
 	public List<MemberDTO> selectAll();
+	public MemberDTO selectOne(String memberNum);
+	
 }

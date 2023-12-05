@@ -13,4 +13,12 @@ from members
 where member_id = #{memberId}
 </select>
 
+<select id="myInquiryList" resultType="estimateinquiry" parameterType="string">
+select member_num memberNum, estimate_inquiry_name estimateInquiryName, estimate_inquiry_regist estimateInquiryRegist
+from estimateInquiry
+where member_num = #{memberNum}
+order by estimate_inquiry_regist desc
+</select>
+
+
 </mapper>

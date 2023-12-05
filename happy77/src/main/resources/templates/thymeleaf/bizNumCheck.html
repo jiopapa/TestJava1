@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js"></script>
+    <title>사업자번호 조회</title>
+    <style type="text/css">
+
+
+body {
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	border-radius: 5px;
+	margin: 0;
+	background-image: url('../static/images/bggg.png');
+}
+</style>
+    <style>
+    
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        function queryBusinessStatus() {
+            var data = {
+                "b_no": [$("#bizNum").val()]
+            };
+
+            $.ajax({
+                url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=in3Kf8SlpJx7RB5ttV4a5%2Boo7iDS5tbjI03fX7So8bnWApG7Ss%2FWH9AYr%2FAofR2rBqXZEVrrsVgL7xwNdTSaVg%3D%3D",
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: "application/json",
+                success: function(result) {
+                    // 결과 값을 HTML로 표시할 테이블 선택
+                    var resultTable = $("#resultTable");
+
+                    // 기존 결과 테이블 지우기
+                    resultTable.empty();
+
+                    // 테이블 헤더 생성
+                    var headerRow = $("<tr>");
+                    headerRow.append("<th>항목</th>");
+                    headerRow.append("<th>값</th>");
+                    resultTable.append(headerRow);
+
+                    // 'b_no'와 'tax_type'만 표시
+                    var keysToShow = ['b_no', 'tax_type'];
+
+                    // 데이터 테이블 생성
+                    $.each(result.data[0], function(key, value) {
+                        if (keysToShow.includes(key)) {
+                            // 'b_no'를 '사업자번호'로, 'tax_type'을 '상태'로 표시
+                            key = (key === 'b_no') ? '사업자번호' : '상태';
+
+                            var newRow = $("<tr>");
+                            newRow.append("<td>" + key + "</td>");
+                            newRow.append("<td>" + value + "</td>");
+                            resultTable.append(newRow);
+                        }
+                    });
+                },
+                error: function(result) {
+                    console.log(result.responseText);
+                }
+            });
+        }
+
+        // 문서가 로드된 후에 jQuery 코드 실행
+        $(document).ready(function() {
+            // 여기에 다른 초기화 작업을 추가할 수 있습니다.
+        });
+    </script>
+</head>
+<body>
+
+<form align="center">
+    <label for="bizNum" >사업자번호:</label>
+    <input type="text" id="bizNum" name="bizNum" placeholder="-를 제외 번호만 입력" max="10">
+    <button type="button" onclick="queryBusinessStatus()">조회</button>
+</form>
+
+<!-- 결과를 표시할 테이블 -->
+<table id="resultTable"></table>
+
+</body>
+</html>

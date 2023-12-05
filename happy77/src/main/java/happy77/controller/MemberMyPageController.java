@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import happy77.command.MemberCommand;
 import happy77.service.memberMyPage.MemberInfoService;
+import happy77.service.memberMyPage.MemberMyInquiryListService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -17,6 +18,8 @@ import jakarta.servlet.http.HttpSession;
 public class MemberMyPageController {
 	@Autowired
 	MemberInfoService memberInfoService;
+	@Autowired
+	MemberMyInquiryListService memberMyInquiryListService;
 	
 	@RequestMapping("myDetail")
 	public String myDetail(HttpSession session, Model model) {
@@ -31,5 +34,10 @@ public class MemberMyPageController {
 			return "thymeleaf/memberMy/memberMyInfo";
 		}
 		return "redirect:/";
+	}
+	@RequestMapping("myInquiryList")
+	public String myInquiryList(HttpSession session, Model model) {
+		memberMyInquiryListService.execute(session, model);
+		return "thymeleaf/memberMy/myInquiryList2";
 	}
 }

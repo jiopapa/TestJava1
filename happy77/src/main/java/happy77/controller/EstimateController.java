@@ -38,7 +38,7 @@ public class EstimateController {
 	@PostMapping("inquirySubmit")
 	public String inquirySubmit(HttpSession session, EstimateInquiryCommand estimateInquiryCommand, Model model) {
 		inquiryInsertService.execute(estimateInquiryCommand , session);
-		return "redirect:contact";
+		return "redirect:../myPage/myInquiryList";
 	}
 	@GetMapping("inquiryWrite")
 	public String inquiryList(HttpSession session, EstimateInquiryCommand estimateInquiryCommand, Model model) {

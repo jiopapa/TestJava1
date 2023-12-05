@@ -18,4 +18,6 @@ select member_num memberNum, estimate_inquiry_name estimateInquiryName, estimate
 from estimateInquiry
 order by estimate_inquiry_regist desc
 </select>
+
+
 </mapper>

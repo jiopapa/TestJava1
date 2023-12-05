@@ -47,12 +47,16 @@
          <div th:if="${session.auth == null}"><a href="/login/loginForm">로그인</a></div>
         
          <div th:if="${session.auth != null && session.auth.grade == 'mem'}">
-         									  <a href="/estimate/estimateInquiryList">견적문의</a>
-         									  <a href="/myPage/myDetail">내정보</a></div>
+         									  <a href="/myPage/myInquiryList">견적문의</a>
+         									  <a href="/myPage/myDetail">내정보</a>
+         									  <a href="/login/logout">로그아웃</a></div>
          
          <div th:if="${session.auth != null && session.auth.grade == 'emp'}">
          									  <a href="/estimate/estimateInquiryList">견적문의리스트</a>
-         									  <a href="memberList">회원리스트</a></div>
+         									  <a href="memberList">회원리스트</a>
+         									  <a href="bizcheck">사업자번호조회</a>
+         									  <a href="marketPrice">원자재 시세 조회</a>
+         									  <a href="/login/logout">로그아웃</a></div>
          							
          									  
       </div>
@@ -99,13 +103,17 @@
                                  <div class="build_box text_align_left">
                                     <h1>최고의 품질을 위해 노력하는<br> <span class="white">해피메탈입니다.</span></h1>
                                     <p>고객 만족을 위해 항상 노력하겠습니다.</p>
-                                    <div th:if="${session.auth != null}">
-                                    <a class="read_more conatct_btn" href="/estimate/estimateInquiryList" role="button">견적문의</a>
+                                    <div th:if="${session.auth != null && session.auth.grade == 'emp'}">
+                                    <a class="read_more conatct_btn" href="/estimate/estimateInquiryList" role="button">견적리스트</a>
                                     </div>
                                     <div th:if="${session.auth == null}">
-                                    <a class="read_more conatct_btn" href="/login/loginForm" role="button">로그인</a>
+                                    <a class="read_more conatct_btn" href="/login/loginForm" role="button">견적문의</a>
+
                                     </div>
+                                    <div th:if="${session.auth != null && session.auth.grade == 'mem'}">
+         							<a class="read_more conatct_btn" href="/myPage/myInquiryList" role="button">견적문의</a></div>
                                     <a class="read_more conatct_btn" href="#about" role="button">회사소개</a>
+                                    
                                  </div>
                               </div>
                            </div>

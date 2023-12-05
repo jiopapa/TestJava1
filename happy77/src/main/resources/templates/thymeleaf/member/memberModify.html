@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
-	rel="stylesheet">
-<style type="text/css">
-
-
-body {
-	box-sizing: border-box;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-radius: 5px;
-	margin: 0;
-	background-image: url('../static/images/bggg.png');
-}
-</style>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/static/js/daumAddressScript.js"></script>
-
+<script>
+var data = {
+    "b_no": ["xxxxxxx"] // 사업자번호 "xxxxxxx" 로 조회 시,
+   }; 
+   
+$.ajax({
+  url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=in3Kf8SlpJx7RB5ttV4a5%2Boo7iDS5tbjI03fX7So8bnWApG7Ss%2FWH9AYr%2FAofR2rBqXZEVrrsVgL7xwNdTSaVg%3D%3D",  // serviceKey 값을 xxxxxx에 입력
+  type: "POST",
+  data: JSON.stringify(data), // json 을 string으로 변환하여 전송
+  dataType: "JSON",
+  contentType: "application/json",
+  accept: "application/json",
+  success: function(result) {
+      console.log(result);
+  },
+  error: function(result) {
+      console.log(result.responseText); //responseText의 에러메세지 확인
+  }
+});
+</script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="memberUpdate" method="post" id="frm"  >
+<form action="memberUpdate" method="post" id="frm"  >
 <input type="hidden" name="memberNum" th:value="${memberCommand.memberNum}">
 <table border="1" align="center" >
 <caption>회원정보 조회 및 수정</caption>
@@ -30,7 +34,8 @@ body {
 <tr><th>담당자이름</th> <td> <input type="text" name="picName" th:value="${memberCommand.picName}" ></td></tr>
 <tr><th>담당자전화번호</th><td> <input type="text" name="picPhone" th:value="${memberCommand.picPhone}"></td></tr>
 <tr><th>담당자이메일</th><td> <input type="text" name="picEmail" th:value="${memberCommand.picEmail}"></td></tr>
-<tr><th>사업자번호</th><td> <input type="text" name="businessRegiNum" th:value="${memberCommand.businessRegiNum}"></td></tr>
+<tr><th>사업자번호</th><td> <input type="text" name="businessRegiNum" th:value="${memberCommand.businessRegiNum}"><button type="button" ></td></tr>
+
 <tr><th>사업체명</th><td> <input type="text" name="businessName" th:value="${memberCommand.businessName}"></td></tr>
 <tr><th>사업체주소</th><td> <input type="text" name="businessAddr" id="sample4_roadAddress" 
 						  onclick="execDaumPostcode();" readonly="readonly" th:value="${memberCommand.businessAddr}" ></td></tr>
@@ -46,6 +51,5 @@ body {
 
 </table>
 </form>
- 
 </body>
 </html>

@@ -33,4 +33,13 @@ select member_num memberNum, member_id memberId, member_pw memberPw, pic_name pi
 					,business_type businessType, business_item businessItem, business_tel businessTel, member_regist memberRegist
 from members
 </select>
+<select id="selectOne" resultType="member" parameterType="string">
+select member_num memberNum, member_id memberId, member_pw memberPw, pic_name picName, pic_phone picPhone
+					,pic_email picEmail, business_regi_num businessRegiNum, business_name businessName, business_addr businessAddr
+					,business_addr_detail businessAddrDetail, business_post businessPost, representative_name representativeName
+					,business_type businessType, business_item businessItem, business_tel businessTel
+from members 
+where member_num = #{memberNum}
+</select>
+
 </mapper>

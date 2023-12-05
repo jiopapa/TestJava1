@@ -33,4 +33,5 @@ public class RegisterController {
 		memberInsertService.execute(memberCommand);
 		return "redirect:/";
 	}
+	
 }
