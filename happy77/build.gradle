@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.json:json:20210307'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -65,8 +66,16 @@ dependencies {
 	// 한번 외부 모둘을 불러오기
 	//implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
 	
+	//web socket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    
+	/* JSONParser, JSONObject설정 */
+	implementation 'org.springframework.boot:spring-boot-starter-json'
+	
+	
+	//webjars
+	implementation 'org.webjars:jquery:3.5.1'
 	
 }
 

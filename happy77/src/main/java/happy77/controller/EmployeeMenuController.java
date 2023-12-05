@@ -10,8 +10,9 @@ public class EmployeeMenuController {
 	public String bizcheck() {
 		return"thymeleaf/bizNumCheck";
 	}
-	@RequestMapping("marketPrice")
-	public String marketPrice() {
-		return"thymeleaf/commodity";
+	@RequestMapping("chat")
+	public String chat() {
+		return"thymeleaf/chat";
 	}
+
 }
