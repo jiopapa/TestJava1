@@ -10,4 +10,5 @@ import happy77.domain.EstimateInquiryDTO;
 public interface EstimateInquiryMapper {
 	public int inquiryInsert(EstimateInquiryDTO dto);
 	public List<EstimateInquiryDTO> inquiryList(String memberNum);
+	public EstimateInquiryDTO selectOne(String estimateInquiryNum);
 }

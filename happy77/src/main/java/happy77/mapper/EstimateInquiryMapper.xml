@@ -14,9 +14,19 @@ from estimateInquiry),#{estimateInquiryName},#{material},#{materialThickness},#{
 </insert>
 
 <select id="inquiryList" resultType="estimateinquiry" parameterType="string">
-select member_num memberNum, estimate_inquiry_name estimateInquiryName, estimate_inquiry_regist estimateInquiryRegist
+select estimate_inquiry_num estimateInquiryNum, member_num memberNum, estimate_inquiry_name estimateInquiryName, estimate_inquiry_regist estimateInquiryRegist
 from estimateInquiry
 order by estimate_inquiry_regist desc
+</select>
+
+<select id="selectOne" resultType="estimateinquiry" parameterType="string">
+select estimate_inquiry_num estimateInquiryNum, estimate_inquiry_name estimateInquiryName, 
+Material, Material_Thickness MaterialThickness
+ , metal_size metalSize, metalwork_qty metalworkQty, desired_Drawing desiredDrawing, desired_Drawing_Img desiredDrawingImg
+ , estimate_inquiry_content estimateInquiryContent
+ , desired_delivery_date desiredDeliveryDate, estimate_inquiry_regist estimateInquiryRegist, member_num memberNum
+from estimateInquiry
+where estimate_inquiry_num = #{estimateInquiryNum}
 </select>
 
 

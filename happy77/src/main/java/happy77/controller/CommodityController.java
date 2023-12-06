@@ -15,7 +15,7 @@ public class CommodityController {
     @GetMapping("/getCommodityData")
     public String getCommodityData(Model model) {
         String symbol = "WTI";
-        String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + apiKey;
+        String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+symbol+"&apikey="+apiKey;
 
         RestTemplate restTemplate = new RestTemplate();
         String commodityData = restTemplate.getForObject(url, String.class);
